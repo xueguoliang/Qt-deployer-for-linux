@@ -125,7 +125,7 @@
           <item>
            <widget class="QLabel" name="label_3">
             <property name="text">
-             <string>Plugin Platform File</string>
+             <string>Plugin Platform File (libqxcb.so)</string>
             </property>
            </widget>
           </item>

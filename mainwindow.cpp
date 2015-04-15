@@ -38,13 +38,11 @@ void MainWindow::on_btnExe_clicked()
 
 
     //menjalankan perintah ldd
-    filename.replace(" ","\\ ");
     QProcess *exe = new QProcess(this);
-    exe->start("ldd "+filename);
+    exe->start("ldd "+ QString('"') + filename + QString('"'));
 
     //membaca output ldd
     exe->waitForFinished();
-    exe->waitForReadyRead();
     while(exe->canReadLine())
     {
         QString lib = exe->readLine();
@@ -62,7 +60,7 @@ void MainWindow::on_btnExe_clicked()
     }
 
     //mengganti lokasi RPATH
-    exe->start("chrpath -r . "+filename);
+    exe->start("chrpath -r . "+ QString('"') + filename + QString('"'));
 }
 
 void MainWindow::on_btnPlatform_clicked()
@@ -75,7 +73,7 @@ void MainWindow::on_btnPlatform_clicked()
 
     //menjalankan perintah ldd
     QProcess *platform = new QProcess(this);
-    platform->start("ldd "+filename);
+    platform->start("ldd "+ QString('"') + filename + QString('"'));
 
     //membaca output ldd
     platform->waitForFinished();
@@ -96,13 +94,13 @@ void MainWindow::on_btnPlatform_clicked()
     }
 
     //membuat folder platforms
-    platform->start("mkdir " + projectFolder + "/platforms");
+    platform->start("mkdir " + QString('"') + projectFolder + "/platforms" + QString('"'));
     platform->waitForFinished();
 
     //copy file Plugin Platform
     QFile::copy(filename, projectFolder + "/platforms/libqxcb.so");
 
     //mengganti lokasi RPATH
-    platform->start("chrpath -r ../ " + projectFolder + "/platforms/libqxcb.so");
+    platform->start("chrpath -r ../ " + QString('"') + projectFolder + "/platforms/libqxcb.so" + QString('"'));
     platform->waitForFinished();
 }
