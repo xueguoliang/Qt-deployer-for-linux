@@ -365,20 +365,6 @@
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_5">
              <item>
-              <widget class="QRadioButton" name="radioCopyPlatformQt">
-               <property name="font">
-                <font>
-                 <pointsize>8</pointsize>
-                 <weight>75</weight>
-                 <bold>true</bold>
-                </font>
-               </property>
-               <property name="text">
-                <string>Only Copy Qt Libraries</string>
-               </property>
-              </widget>
-             </item>
-             <item>
               <widget class="QRadioButton" name="radioCopyPlatformAll">
                <property name="font">
                 <font>
@@ -389,6 +375,20 @@
                </property>
                <property name="text">
                 <string>Copy All Libraries</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="radioCopyPlatformQt">
+               <property name="font">
+                <font>
+                 <pointsize>8</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>Only Copy Qt Libraries</string>
                </property>
               </widget>
              </item>
